@@ -1,5 +1,5 @@
 /*  
-Practica 2: Proyecciones y transformaciones
+Practica 2: Proyecciones y transformaciones 
 Alumno: Mejia Alba Israel Hipolito 
 Fecha de entrega: 25-08-24
 */
