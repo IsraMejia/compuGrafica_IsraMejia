@@ -228,7 +228,7 @@ int main() {
 		glm::mat4 view=glm::mat4(1);
 
 		//Vista				//matriz asociada de la traslacion
-		view = glm::translate(view, glm::vec3(-1.0f, -0.0f, -10.0f)); //x,y,z ,-1,0,-10 
+		view = glm::translate(view, glm::vec3(-1.0f, -0.0f, -10.0f));  
 
 		//cubo E
 		model = glm::rotate( model, 0.5f, glm::vec3( -0.0f, 3.5f, 0.0f ) ); // use to compare orthographic and perspective projection
