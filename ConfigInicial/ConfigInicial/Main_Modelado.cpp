@@ -1,3 +1,9 @@
+/*
+Practica 3: Modelado Geometrico
+Alumno: Mejia Alba Israel Hipolito
+Fecha de entrega: 02-09-24
+*/
+
 #include<iostream>
 
 //#define GLEW_STATIC
@@ -34,7 +40,7 @@ int main() {
 
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Modelado geometrico", nullptr, nullptr);
+	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Mejia Alba Israel Hipolito | P3: Modelado geometrico", nullptr, nullptr);
 
 	int screenWidth, screenHeight;
 
