@@ -88,47 +88,47 @@ int main() {
 
 	// use with Perspective Projection
 	float vertices[] = {
-		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f,0.0f,//Front
-		0.5f, -0.5f, 0.5f,  1.0f, 0.0f,0.0f,
-		0.5f,  0.5f, 0.5f,  1.0f, 0.0f,0.0f,
-		0.5f,  0.5f, 0.5f,  1.0f, 0.0f,0.0f,
-		-0.5f,  0.5f, 0.5f, 1.0f, 0.0f,0.0f,
-		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f,0.0f,
+		-0.5f, -0.5f, 0.5f, 0.8f, 0.8f, 0.8f, //Front
+		0.5f, -0.5f, 0.5f,  0.8f, 0.8f, 0.8f, //Cara gris claro
+		0.5f,  0.5f, 0.5f,  0.8f, 0.8f, 0.8f,
+		0.5f,  0.5f, 0.5f,  0.8f, 0.8f, 0.8f,
+		-0.5f,  0.5f, 0.5f, 0.8f, 0.8f, 0.8f,
+		-0.5f, -0.5f, 0.5f, 0.8f, 0.8f, 0.8f,
 		
-	    -0.5f, -0.5f,-0.5f, 0.0f, 1.0f,0.0f,//Back
-		 0.5f, -0.5f,-0.5f, 0.0f, 1.0f,0.0f,
-		 0.5f,  0.5f,-0.5f, 0.0f, 1.0f,0.0f,
-		 0.5f,  0.5f,-0.5f, 0.0f, 1.0f,0.0f,
-	    -0.5f,  0.5f,-0.5f, 0.0f, 1.0f,0.0f,
-	    -0.5f, -0.5f,-0.5f, 0.0f, 1.0f,0.0f,
+	    -0.5f, -0.5f,-0.5f, 1.0f, 0.0f,0.0f, //Back
+		 0.5f, -0.5f,-0.5f, 1.0f, 0.0f,0.0f, //Cara gris Rojo
+		 0.5f,  0.5f,-0.5f, 1.0f, 0.0f,0.0f,
+		 0.5f,  0.5f,-0.5f, 1.0f, 0.0f,0.0f,
+	    -0.5f,  0.5f,-0.5f, 1.0f, 0.0f,0.0f,
+	    -0.5f, -0.5f,-0.5f, 1.0f, 0.0f,0.0f,
 		
-		 0.5f, -0.5f,  0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f, -0.5f, -0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f,  0.5f, -0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f,  0.5f, -0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f,  -0.5f, 0.5f, 0.0f, 0.0f,1.0f,
+		 0.5f, -0.5f,  0.5f,  0.5f, 0.5f, 0.5f, //Cara gis medio
+		 0.5f, -0.5f, -0.5f,  0.5f, 0.5f, 0.5f, 
+		 0.5f,  0.5f, -0.5f,  0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f, -0.5f,  0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f,  0.5f,  0.5f, 0.5f, 0.5f,
+		 0.5f,  -0.5f, 0.5f,  0.5f, 0.5f, 0.5f,
       
-		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f, -0.5f, -0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f, -0.5f, -0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f, -0.5f,  0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f,0.0f,
+		-0.5f,  0.5f,  0.5f,  0.2f, 0.2f, 0.2f, //Cara gris oscuro
+		-0.5f,  0.5f, -0.5f,  0.2f, 0.2f, 0.2f,
+		-0.5f, -0.5f, -0.5f,  0.2f, 0.2f, 0.2f,
+		-0.5f, -0.5f, -0.5f,  0.2f, 0.2f, 0.2f,
+		-0.5f, -0.5f,  0.5f,  0.2f, 0.2f, 0.2f,
+		-0.5f,  0.5f,  0.5f,  0.2f, 0.2f, 0.2f,
 		
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,1.0f,
-		0.5f, -0.5f, -0.5f,  0.0f, 1.0f,1.0f,
-		0.5f, -0.5f,  0.5f,  0.0f, 1.0f,1.0f,
-		0.5f, -0.5f,  0.5f,  0.0f, 1.0f,1.0f,
-		-0.5f, -0.5f,  0.5f, 0.0f, 1.0f,1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,1.0f,
+		-0.5f, -0.5f, -0.5f, 0.5f, 0.5f, 0.5f,
+		0.5f, -0.5f, -0.5f,  0.5f, 0.5f, 0.5f,
+		0.5f, -0.5f,  0.5f,  0.5f, 0.5f, 0.5f,
+		0.5f, -0.5f,  0.5f,  0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f,  0.5f, 0.5f, 0.5f, 0.5f, //cara inferior
+		-0.5f, -0.5f, -0.5f, 0.5f, 0.5f, 0.5f,
 		
-		-0.5f,  0.5f, -0.5f, 1.0f, 0.2f,0.5f,
-		0.5f,  0.5f, -0.5f,  1.0f, 0.2f,0.5f,
-		0.5f,  0.5f,  0.5f,  1.0f, 0.2f,0.5f,
-		0.5f,  0.5f,  0.5f,  1.0f, 0.2f,0.5f,
-		-0.5f,  0.5f,  0.5f, 1.0f, 0.2f,0.5f,
-		-0.5f,  0.5f, -0.5f, 1.0f, 0.2f,0.5f,
+		-0.5f,  0.5f, -0.5f,   0.05f, 0.05f, 0.05f,
+		0.5f,  0.5f, -0.5f,    0.05f, 0.05f, 0.05f,
+		0.5f,  0.5f,  0.5f,    0.05f, 0.05f, 0.05f,
+		0.5f,  0.5f,  0.5f,    0.05f, 0.05f, 0.05f,  // cara superior
+		-0.5f,  0.5f,  0.5f,   0.05f, 0.05f, 0.05f,
+		-0.5f,  0.5f, -0.5f,   0.05f, 0.05f, 0.05f,
 	};
 
 
@@ -178,7 +178,7 @@ int main() {
 
 		// Render
 		// Clear the colorbuffer
-		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+		glClearColor(1.0f, 0.5f, 0.2f, 0.05f);
 		glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
 
 
@@ -264,10 +264,10 @@ int main() {
 	 if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		 movZ += 0.01f;
 
-	 if (glfwGetKey(window, GLFW_KEY_PAGE_UP) == GLFW_PRESS)
-		 movY += 0.005f;
-	 if (glfwGetKey(window, GLFW_KEY_PAGE_DOWN) == GLFW_PRESS)
-		 movY -= 0.005f;
+	 if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+		 movY += 0.003f;
+	 if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+		 movY -= 0.003f;
 	 if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
 		 rot +=0.02f;;
 	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
