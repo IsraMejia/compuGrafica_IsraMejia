@@ -27,7 +27,7 @@ void Inputs(GLFWwindow *window);
 const GLint WIDTH = 800, HEIGHT = 600;
 float movX=0.0f;
 float movY=0.0f;
-float movZ=-5.0f;
+float movZ=-5.0f; 
 float rot = 0.0f;
 int main() {
 	glfwInit();
@@ -202,14 +202,44 @@ int main() {
 	
 
 		glBindVertexArray(VAO);
-	
-	    model = glm::mat4(1.0f);
+		//Definiendo el tamaño de la superficie de la mesa
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.0f, 0.1f, 2.0f)); // ancho grosor y profundidad
+		model = glm::translate(model, glm::vec3(0.0f, 0.6f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
-		glBindVertexArray(0);
+		//glBindVertexArray(0);
 
-				
+		//pata1
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.25f, 0.8f, 0.25f));
+		model = glm::translate(model, glm::vec3(3.9f, -0.49f, 2.9f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+		
+		//pata2
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.25f, 0.8f, 0.25f));
+		model = glm::translate(model, glm::vec3(-3.9f, -0.49f, 2.9f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
 
+		//pata3
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.25f, 0.8f, 0.25f));
+		model = glm::translate(model, glm::vec3(-3.9f, -0.49f, -2.9f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+
+		//pata4
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.25f, 0.8f, 0.25f));
+		model = glm::translate(model, glm::vec3(3.9f, -0.49f, -2.9f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+
+		glBindVertexArray(0); // al final de la creacion de los modelos
+		
 		// Swap the screen buffers
 		glfwSwapBuffers(window);
 	
@@ -228,19 +258,20 @@ int main() {
 	 if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		 movX += 0.01f;
 	 if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		 movX -= 0.01f;
-	 if (glfwGetKey(window, GLFW_KEY_PAGE_UP) == GLFW_PRESS)
-		 movY += 0.01f;
-	 if (glfwGetKey(window, GLFW_KEY_PAGE_DOWN) == GLFW_PRESS)
-		 movY -= 0.01f;
+		 movX -= 0.01f;	 
 	 if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		 movZ -= 0.01f;
 	 if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		 movZ += 0.01f;
+
+	 if (glfwGetKey(window, GLFW_KEY_PAGE_UP) == GLFW_PRESS)
+		 movY += 0.005f;
+	 if (glfwGetKey(window, GLFW_KEY_PAGE_DOWN) == GLFW_PRESS)
+		 movY -= 0.005f;
 	 if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-		 rot +=0.005f;;
+		 rot +=0.02f;;
 	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-		 rot -=0.005f;;
+		 rot -=0.02f;;
  }
 
 
