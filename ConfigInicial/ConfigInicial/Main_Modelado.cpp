@@ -325,7 +325,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
 
 		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
-		model = glm::scale(model, glm::vec3(0.2f, 0.6f, 0.25f));
+		model = glm::scale(model, glm::vec3(0.2f, 0.6f, 0.25f)); 
 		model = glm::translate(model, glm::vec3(0.85f, 0.89f, 3.52f));
 		model = glm::rotate(model, 1.5f, glm::vec3(0.0f, 0.57f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
