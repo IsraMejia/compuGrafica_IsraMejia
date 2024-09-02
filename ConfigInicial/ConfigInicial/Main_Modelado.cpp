@@ -204,13 +204,89 @@ int main() {
 	
 
 		glBindVertexArray(VAO);
+
 		//Cabeza entera del Ghast
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(3.0f, 2.5f, 2.0f)); // ancho grosor y profundidad
+		model = glm::scale(model, glm::vec3(3.0f, 2.8f, 2.0f)); // ancho grosor y profundidad
 		model = glm::translate(model, glm::vec3(0.0f, 0.5f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		//glBindVertexArray(0);
+
+			//Ojo Izq
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.65f, 0.2f, 0.25f));
+		model = glm::translate(model, glm::vec3(-0.87f, 8.8f, 3.52f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, 0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+		//BordeSuperior Ojo
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.65f, 0.2f, 0.25f));
+		model = glm::translate(model, glm::vec3(-0.87f, 8.8f, 3.52f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, 0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+
+			//Lagrima Ojo Izq 
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.65f, 0.15f, 0.25f));
+		model = glm::translate(model, glm::vec3(-0.87f, 10.6f, 3.52f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, -0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+				//gota lagrima
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.15f, 0.55f, 0.25f));
+		model = glm::translate(model, glm::vec3(-3.6f, 2.5f, 3.52f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, -0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+				//gota pequeña lagrima
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.15f, 0.25f, 0.25f));
+		model = glm::translate(model, glm::vec3(-2.0f, 5.9f, 3.55f)); 
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, -0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+
+		//Ojo Derecho
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.65f, 0.2f, 0.25f));
+		model = glm::translate(model, glm::vec3(0.87f, 8.8f, 3.52f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, 0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+		//Lagrima Ojo Der 
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.65f, 0.15f, 0.25f));
+		model = glm::translate(model, glm::vec3(0.85f, 10.6f, 3.52f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, -0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+			//gota lagrima
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.15f, 0.55f, 0.25f));
+		model = glm::translate(model, glm::vec3(3.6f, 2.5f, 3.52f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, -0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+			//gota pequeña lagrima
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.15f, 0.25f, 0.25f));
+		model = glm::translate(model, glm::vec3(2.0f, 5.9f, 3.55f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, -0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+
+
+			//Boca
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.85f, 0.2f, 0.25f));
+		model = glm::translate(model, glm::vec3(0.0f, 1.9f, 3.52f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, 0.57f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
 
 		
 		
@@ -247,14 +323,30 @@ int main() {
 		//pata Anterior Izq  del Ghast
 		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
 		model = glm::scale(model, glm::vec3(0.4f, 2.2f, 0.25f));
-		model = glm::translate(model, glm::vec3(0.0f, -0.49f, 2.9f));
+		model = glm::translate(model, glm::vec3(3.0f, -0.49f, 2.9f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+			
+			//Detalle gris pata  izq
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.4f, 0.8f, 0.25f));
+		model = glm::translate(model, glm::vec3(3.0f, -2.23f, 2.92f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, 0.57f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
 		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
 
 		//pata Posterior Izq  del Ghast
 		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
 		model = glm::scale(model, glm::vec3(0.4f, 2.2f, 0.25f));
-		model = glm::translate(model, glm::vec3(0.0f, -0.49f, -2.9f));
+		model = glm::translate(model, glm::vec3(3.0f, -0.49f, -2.9f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
+		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
+			
+			//Detalle gris pata  izq
+		model = glm::mat4(1.0f); //matriz unitaria de punto de partida para la pata de la mesa
+		model = glm::scale(model, glm::vec3(0.4f, 0.8f, 0.25f));
+		model = glm::translate(model, glm::vec3(3.0f, -2.23f, -2.89f));
+		model = glm::rotate(model, 1.555f, glm::vec3(0.0f, 0.57f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // se manda modelo al shader
 		glDrawArrays(GL_TRIANGLES, 0, 36); //dibujamos la caja con 2 triangulos por cara
 
