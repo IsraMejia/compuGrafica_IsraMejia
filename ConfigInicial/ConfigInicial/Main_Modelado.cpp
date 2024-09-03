@@ -140,7 +140,7 @@ int main() {
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	//glGenBuffers(1, &EBO);
-
+  
 	// Enlazar  Vertex Array Object
 	glBindVertexArray(VAO);
 
