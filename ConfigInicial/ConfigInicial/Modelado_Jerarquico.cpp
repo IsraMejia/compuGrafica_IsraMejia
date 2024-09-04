@@ -1,3 +1,11 @@
+/*  
+Practica 4: Modelado Jerarquico 
+Alumno: Mejia Alba Israel Hipolito 
+Fecha de entrega: 08-09-24
+*/
+
+
+
 #include<iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
