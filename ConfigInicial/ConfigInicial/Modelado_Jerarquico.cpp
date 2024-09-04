@@ -198,7 +198,7 @@ int main() {
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
 	
 
-		glBindVertexArray(VAO); 
+		glBindVertexArray(VAO);    
 		
 		//Model Bicep
 		model = glm::rotate(model, glm::radians(hombro), glm::vec3(0.0f, 0.0, 1.0f)); //hombro
@@ -206,7 +206,7 @@ int main() {
 		model = glm::scale(model, glm::vec3(3.0f, 1.0f, 1.0f));//Escala al modelo original
 		color = glm::vec3(0.0f, 1.0f, 0.0f);// Define el color RGB
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); 
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));  
 		glDrawArrays(GL_TRIANGLES, 0, 36);//A
 
 		//Model Antebrazo
