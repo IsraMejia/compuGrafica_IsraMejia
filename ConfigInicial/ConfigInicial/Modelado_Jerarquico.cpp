@@ -32,8 +32,18 @@ rot = 0.0f;
 float	hombro = 0.0f;
 float	codo = 0.0f;
 float	muneca= 0.0f;
+
 float	dedo1 = 0.0f;
+float	falanged1 = 0.0f;
+
 float	dedo2 = 0.0f;
+float	falanged2 = 0.0f;
+
+float	dedo3 = 0.0f;
+float	falanged3 = 0.0f;
+
+float	dedo4 = 0.0f;
+float	falanged4 = 0.0f;
 
 int main() {
 	glfwInit();
@@ -249,16 +259,39 @@ int main() {
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);//D
-
-		//Model dedo2
+			//Model Falange2_Dedo1
 		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.00f, 0.0f));
-		model = glm::rotate(model, glm::radians(dedo2), glm::vec3(0.0f, 0.0, 1.0f));
+		model = glm::rotate(model, glm::radians(falanged1), glm::vec3(0.0f, 0.0, 1.0f));
 		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f)); //Pivote matriz auxiliar para trasladar el modelo
 		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));//Escala al modelo original
 		color = glm::vec3(1.0f, 6.0f, 0.8f);// Define el color RGB
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);//D 
+
+					//Dedo2 
+		//Model dedo2
+		//modeltemp2 pasa la palma y este dedo le pasa el temp1 el punto de partida del siguiente
+		model = glm::translate(modelTemp2, glm::vec3(0.005f, 0.35f, -0.2f)); 
+		model = glm::rotate(model, glm::radians(dedo1), glm::vec3(0.0f, 0.0, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f)); //Pivote matriz auxiliar para trasladar el modelo
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));//Escala al modelo original
+		color = glm::vec3(1.0f, 1.0f, 0.0f);// Define el color RGB
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//D
+			//Model Falange2_Dedo2
+		//recibe temp1 y escribe temp2 para el punto de partida del siguiente dedo
+		model = glm::translate(modelTemp2, glm::vec3(0.0f, 0.0f, 0.0)); 
+		model = glm::rotate(model, glm::radians(falanged1), glm::vec3(0.0f, 0.0, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f)); //Pivote matriz auxiliar para trasladar el modelo
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));//Escala al modelo original
+		color = glm::vec3(1.0f, 0.5f, 0.0f);// Define el color RGB
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//D 
+
+
 
 		glBindVertexArray(0);
 
@@ -275,6 +308,8 @@ int main() {
 	return EXIT_SUCCESS;
  }
 
+	/* Ajustar a movimientos naturales de un humano*/
+
  void Inputs(GLFWwindow *window) {
 	 if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)  //GLFW_RELEASE
 		 glfwSetWindowShouldClose(window, true);
@@ -288,13 +323,13 @@ int main() {
 		 movZ += 0.001f;
 	
 	 if (glfwGetKey(window,GLFW_KEY_UP) == GLFW_PRESS)
-		 movY += 0.01f;
+		 movY += 0.11f;
 	 if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-		 movY -= 0.01f;
+		 movY -= 0.11f;
 	 if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-		 rot += 0.01f;
+		 rot += 0.11f;
 	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-		 rot -= 0.01f;
+		 rot -= 0.11f;
 
 	 if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
 		 hombro += 0.021f;
@@ -311,15 +346,27 @@ int main() {
 	 if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
 		 codo -= 0.021f;
 	
+	// Dedo1
 	if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
 		 dedo1 += 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
 		 dedo1 -= 0.021f;
-	 
+	//Falange2 Dedo1 
 	 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
-		 dedo2 += 0.021f;
+		 falanged1 += 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+		 falanged1 -= 0.021f;
+
+	// Dedo2
+	if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+		 dedo2 += 0.021f;
+	 if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
 		 dedo2 -= 0.021f;
+	//Falange2 Dedo2 
+	 if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+		 falanged2 += 0.021f;
+	 if (glfwGetKey(window, GLFW_KEY_X )== GLFW_PRESS)
+		 falanged2 -= 0.021f;
 
  }
 
