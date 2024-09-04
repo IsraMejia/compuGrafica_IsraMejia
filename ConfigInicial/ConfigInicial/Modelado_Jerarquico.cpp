@@ -275,19 +275,19 @@ int main() {
 		 rot -= 0.001f;
 
 	 if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
-		 hombro += 0.001f;
+		 hombro += 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
-		 hombro -= 0.001f;
+		 hombro -= 0.021f;
 
 	 if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
-		 codo += 0.001f;
+		 muneca += 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
-		 codo -= 0.001f;
+		 muneca -= 0.021f;
 
 	 if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
-		 muneca += 0.001f;
+		 codo += 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
-		 muneca -= 0.001f;
+		 codo -= 0.021f;
 
  }
 

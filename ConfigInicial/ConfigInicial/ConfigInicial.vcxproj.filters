@@ -33,7 +33,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main_P3.cpp">
+    <ClCompile Include="Modelado_Jerarquico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
