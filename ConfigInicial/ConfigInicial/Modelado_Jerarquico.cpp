@@ -23,15 +23,17 @@ void Inputs(GLFWwindow *window);
 const GLint WIDTH = 1200, HEIGHT = 800;
 
 //For Keyboard
-float	movX = 0.0f,
+float	movX = -3.0f,
 movY = 0.0f,
-movZ = -5.0f,
+movZ = -10.0f,
 rot = 0.0f;
 
 //For model
 float	hombro = 0.0f;
 float	codo = 0.0f;
 float	muneca= 0.0f;
+float	dedo1 = 0.0f;
+float	dedo2 = 0.0f;
 
 int main() {
 	glfwInit();
@@ -44,7 +46,7 @@ int main() {
 
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Israel Mejia ", nullptr, nullptr);
+	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Israel Mejia | Practica 4: Modelado Jerarquico ", nullptr, nullptr);
 
 	int screenWidth, screenHeight;
 
@@ -228,16 +230,35 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);//B
 
 		//Model Palma 
-		model = glm::translate(modelTemp, glm::vec3(1.0f, 0.0f, 0.0f)); //Seteo el modelTemp en el punto de referencia de la palma
+		model = glm::translate(modelTemp, glm::vec3(1.25f, 0.0f, 0.0f)); //Seteo el modelTemp en el punto de referencia de la palma
 		model = glm::rotate(model, glm::radians(muneca), glm::vec3(1.0f, 0.0, 0.0f)); //muneca
-		modelTemp2 = modelTemp = glm::translate(model, glm::vec3(0.25f, 0.0f, 0.0f)); //modeltemp2 pivote2
+		modelTemp2 = modelTemp = glm::translate(model, glm::vec3(0.25f, 0.0f, 0.0f)); //modeltemp2 pivote2 principalmente para los dedos y no calcular tanto para llegar al pivote original
 		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 1.0f));
 		color = glm::vec3(1.0f, 1.0f, 1.0f);
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);//Dibuja la cajaC
+		 
+			//Dedos
+		//Model dedo1
+		model = glm::translate(modelTemp, glm::vec3(0.005f, 0.35f, 0.375f));
+		model = glm::rotate(model, glm::radians(dedo1), glm::vec3(0.0f, 0.0, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f)); //Pivote matriz auxiliar para trasladar el modelo
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));//Escala al modelo original
+		color = glm::vec3(1.0f, 0.0f, 0.4f);// Define el color RGB
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//D
 
-
+		//Model dedo2
+		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.00f, 0.0f));
+		model = glm::rotate(model, glm::radians(dedo2), glm::vec3(0.0f, 0.0, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f)); //Pivote matriz auxiliar para trasladar el modelo
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));//Escala al modelo original
+		color = glm::vec3(1.0f, 6.0f, 0.8f);// Define el color RGB
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//D 
 
 		glBindVertexArray(0);
 
@@ -261,18 +282,19 @@ int main() {
 		 movX += 0.001f;
 	 if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 		 movX -= 0.001f;
-	 if (glfwGetKey(window,GLFW_KEY_UP) == GLFW_PRESS)
-		 movY += 0.001f;
-	 if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-		 movY -= 0.001f;
 	 if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		 movZ -= 0.001f;
 	 if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		 movZ += 0.001f;
+	
+	 if (glfwGetKey(window,GLFW_KEY_UP) == GLFW_PRESS)
+		 movY += 0.01f;
+	 if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+		 movY -= 0.01f;
 	 if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-		 rot += 0.001f;
+		 rot += 0.01f;
 	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-		 rot -= 0.001f;
+		 rot -= 0.01f;
 
 	 if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
 		 hombro += 0.021f;
@@ -288,6 +310,16 @@ int main() {
 		 codo += 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
 		 codo -= 0.021f;
+	
+	if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
+		 dedo1 += 0.021f;
+	 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
+		 dedo1 -= 0.021f;
+	 
+	 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
+		 dedo2 += 0.021f;
+	 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+		 dedo2 -= 0.021f;
 
  }
 
