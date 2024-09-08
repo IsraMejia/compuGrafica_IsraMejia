@@ -1,4 +1,13 @@
 /*
+
+Analizaz el siguiente codigo, sirve para hacer un modelado jerarquico para en base a cuadrados se forman brazos y dedos.
+Se usa de "modelTemp" Y "modelTemp2" para servir como "checkpoint" de posiciones para poder modelar en estos puntos de referencia las pardes de los brazos, 
+antebrazos, mano y dedos teniendo en cuenta sus falanges del dedo.
+El dedo 1 esta bien ubicado, quiero que modifiques el codigo del dedo2 y falange2 para que esten bien acomodados paralelos al dedo1 y falange1, dentro de la superficie de la mano
+*/
+
+
+/*
 Practica 3: Modelado Geometrico
 Alumno: Mejia Alba Israel Hipolito
 Fecha de entrega: 02-09-24
