@@ -45,6 +45,16 @@ float	falanged3 = 0.0f;
 float	dedo4 = 0.0f;
 float	falanged4 = 0.0f;
 
+//movimiento
+float hombro_max_mov_up = 85.0f; 
+float hobro_max_mov_down = -90.0f; 
+
+float bicep_max_mov_up = 110.0f; 
+float bicep_max_mov_down = -1.0f; 
+
+float muneca_max_mov_up = 100.0f; 
+float muneca_max_mov_down = -37.0f; 
+
 float dedo_max_mov_up = 22.0f; 
 float dedo_max_mov_down = -3.0f; 
 float falange_max_mov_up = 5.0f; 
@@ -401,20 +411,23 @@ int main() {
 	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 		 rot -= 0.11f;
 
+	//Movimiento hombros
 	 if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
-		 hombro += 0.021f;
+	 	 hombro = (hombro >= hombro_max_mov_up) ? hombro : hombro + 0.021f; 
 	 if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
-		 hombro -= 0.021f;
+		 hombro = (hombro <= hobro_max_mov_down) ? hombro : hombro - 0.021f;
 
-	 if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
-		 codo += 0.021f;
+	//movimiwnro bicep
 	 if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
-		 codo -= 0.021f;
+		 codo = (codo <=  -bicep_max_mov_up) ? codo : codo - 0.021f; 
+	 if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
+		 codo = (codo >= -bicep_max_mov_down) ? codo : codo + 0.021f;
 
+	//movimiento muneca
 	 if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
-		 muneca += 0.021f;
+		 muneca = (muneca <=  -muneca_max_mov_up) ? muneca : muneca - 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
-		 muneca -= 0.021f;	 
+		 muneca = (muneca >= -muneca_max_mov_down) ? muneca : muneca + 0.021f;
 	
 
 
