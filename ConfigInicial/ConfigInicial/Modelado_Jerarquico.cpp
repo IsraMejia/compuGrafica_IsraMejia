@@ -45,6 +45,11 @@ float	falanged3 = 0.0f;
 float	dedo4 = 0.0f;
 float	falanged4 = 0.0f;
 
+float dedo_max_mov_up = 22.0f; 
+float dedo_max_mov_down = -3.0f; 
+float falange_max_mov_up = 5.0f; 
+float falange_max_mov_down = -5.0f; 
+
 int main() {
 	glfwInit();
 	//Verificaci�n de compatibilidad 
@@ -411,50 +416,52 @@ int main() {
 	 if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
 		 muneca -= 0.021f;	 
 	
+
+
 	// Dedo1
 	if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
-		 dedo1 += 0.021f;
+		dedo1 = (dedo1 >= dedo_max_mov_up) ? dedo1 : dedo1 + 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-		 dedo1 -= 0.021f;
+		 dedo1 = (dedo1 <= dedo_max_mov_down) ? dedo1 : dedo1 - 0.021f;
 	//Falange2 Dedo1 
 	 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
-		 falanged1 += 0.021f;
+		 falanged1 = (falanged1 >= falange_max_mov_up) ? falanged1 : falanged1 + 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
-		 falanged1 -= 0.021f;
+		 falanged1 = (falanged1 <= falange_max_mov_down) ? falanged1 : falanged1 - 0.021f;
 
-	// Dedo2
-	if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
-		 dedo2 += 0.021f;
+	// Dedo2 <>
+	if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) 
+		dedo2 = (dedo2 >= dedo_max_mov_up) ? dedo2 : dedo2 + 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-		 dedo2 -= 0.021f;
+		dedo2 = (dedo2 <= dedo_max_mov_down) ? dedo2 : dedo2 - 0.021f;
 	//Falange2 Dedo2 
 	 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
-		 falanged2 += 0.021f;
+		 falanged2 = (falanged2 >= falange_max_mov_up) ? falanged2 : falanged2 + 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_K)== GLFW_PRESS) 
-		 falanged2 -= 0.021f;
+		 falanged2 = (falanged2 <= falange_max_mov_down) ? falanged2 : falanged2 - 0.021f;
 
 	 // Dedo3
 	 if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
-		 dedo3 += 0.021f;
+		 dedo3 = (dedo3 >= dedo_max_mov_up) ? dedo3 : dedo3 + 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-		 dedo3 -= 0.021f;
+		 dedo3 = (dedo3 <= dedo_max_mov_down) ? dedo3 : dedo3 - 0.021f;
 	 //Falange3 Dedo3 
 	 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
-		 falanged3 += 0.021f;
+		 falanged3 = (falanged3 >= falange_max_mov_up) ? falanged3 : falanged3 + 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
-		 falanged3 -= 0.021f; 
+		 falanged3 = (falanged3 <= falange_max_mov_down) ? falanged3 : falanged3 - 0.021f;
 
 	
-	// Dedo4
+	 // Dedo4
 	 if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
-		 dedo4 += 0.021f;
+		 dedo4 = (dedo4 <= -dedo_max_mov_up) ? dedo4 : dedo4 - 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-		 dedo4 -= 0.021f;
+		 dedo4 = (dedo4 >= -dedo_max_mov_down) ? dedo4 : dedo4 + 0.021f;
 	 //Falange4 Dedo4 
 	 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
-		 falanged4 += 0.021f;
+		 falanged4 = (falanged4 <= -falange_max_mov_up) ? falanged4 : falanged4 - 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
-		 falanged4 -= 0.021f; 
+		 falanged4 = (falanged4 >= -falange_max_mov_down) ? falanged4 : falanged4 + 0.021f;
 
 
  }
