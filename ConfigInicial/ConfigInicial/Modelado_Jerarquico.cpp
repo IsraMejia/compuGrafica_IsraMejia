@@ -286,7 +286,7 @@ int main() {
 		//modedlTemp normal sera para unir las articulaciones
 					//Dedo2 
 		//Model dedo2
-		//modeltemp2 pasa la palma y este dedo le pasa el temp1 el punto de partida del siguiente
+		//modeltemp2 pasa la palma punto de partida para colocar los dedos
 		model = glm::translate(modelTemp2, glm::vec3(0.005f, 0.35f, -0.0f));
 		model = glm::rotate(model, glm::radians(dedo2), glm::vec3(0.0f, 0.0, 1.0f));
 		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f)); //Pivote matriz auxiliar para trasladar el modelo
@@ -298,12 +298,35 @@ int main() {
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);//D
 			//Model Falange2_Dedo2
-		//recibe temp1 y escribe temp2 para el punto de partida del siguiente dedo
-		model = glm::translate(modelTemp2, glm::vec3(1.005f, 0.35f, 0.0)); 
+		//model Temp maneja donde esta el dedo 2 se le agrea 1 en x para que este al final 
+		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.0f, 0.0)); 
 		model = glm::rotate(model, glm::radians(falanged2), glm::vec3(0.0f, 0.0, 1.0f));
 		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f)); //Pivote matriz auxiliar para trasladar el modelo
 		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));//Escala del falange 1 = 0.5+0.5
 		color = glm::vec3(1.0f, 0.5f, 0.0f);// Define el color RGB
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//D 
+
+		//Model dedo3
+		//modeltemp3 pasa la palma punto de partida para colocar los dedos
+		model = glm::translate(modelTemp2, glm::vec3(0.005f, 0.35f, -0.4f));
+		model = glm::rotate(model, glm::radians(dedo3), glm::vec3(0.0f, 0.0, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f)); //reasignacion del modelTemp para la articulacion
+			//Pivote matriz auxiliar para poder articular esta seccion
+			// Se traslada a la esquina derecha del modelo trasladandola la mitad del recorrido asi se articula correctamente
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));//Escala del Dedo 1 = 0.5+0.5
+		color = glm::vec3(0.0f, 1.0f, 0.0f);// Define el color RGB 
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//D
+			//Model Falange3_Dedo3
+		//model Temp maneja donde esta el dedo 3 se le agrea 1 en x para que este al final 
+		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.0f, 0.0)); 
+		model = glm::rotate(model, glm::radians(falanged3), glm::vec3(0.0f, 0.0, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f)); //Pivote matriz auxiliar para trasladar el modelo
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));//Escala del falange 1 = 0.5+0.5
+		color = glm::vec3(0.0f, 0.5f, 0.0f);// Define el color RGB
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);//D 
