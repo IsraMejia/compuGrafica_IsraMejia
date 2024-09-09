@@ -428,8 +428,6 @@ int main() {
 		 muneca = (muneca <=  -muneca_max_mov_up) ? muneca : muneca - 0.021f;
 	 if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
 		 muneca = (muneca >= -muneca_max_mov_down) ? muneca : muneca + 0.021f;
-	
-
 
 	// Dedo1
 	if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
