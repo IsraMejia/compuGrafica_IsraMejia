@@ -50,7 +50,7 @@ float hombro_max_mov_up = 85.0f;
 float hobro_max_mov_down = -90.0f; 
 
 float bicep_max_mov_up = 110.0f; 
-float bicep_max_mov_down = -1.0f; 
+float bicep_max_mov_down = -1.0f;  
 
 float muneca_max_mov_up = 100.0f; 
 float muneca_max_mov_down = -37.0f; 
