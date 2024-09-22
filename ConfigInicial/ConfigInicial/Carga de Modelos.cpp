@@ -110,7 +110,7 @@ int main( )
 
     // Game loop
     while (!glfwWindowShouldClose(window))
-    {
+    { 
         // Set frame time
         GLfloat currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
