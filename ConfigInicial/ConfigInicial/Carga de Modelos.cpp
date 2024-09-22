@@ -1,3 +1,9 @@
+/*
+Practica 3: Carga de Modelos
+Alumno: Mejia Alba Israel Hipolito
+Fecha de entrega: 19-09-24
+*/
+
 // Std. Includes
 #include <string>
 
@@ -54,7 +60,7 @@ int main( )
     glfwWindowHint( GLFW_RESIZABLE, GL_FALSE );
     
     // Create a GLFWwindow object that we can use for GLFW's functions
-    GLFWwindow *window = glfwCreateWindow( WIDTH, HEIGHT, "Carga de modelos y camara sintetica", nullptr, nullptr );
+    GLFWwindow *window = glfwCreateWindow( WIDTH, HEIGHT, "Israel Mejia | Carga de modelos y camara sintetica", nullptr, nullptr );
     
     if ( nullptr == window )
     {
@@ -95,6 +101,9 @@ int main( )
     
     // Load models
     Model dog((char*)"Models/RedDog.obj");
+    //Model classroom((char*)"Models/classroom.obj");
+    Model brench((char*)"Models/brench.obj");
+
     glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
     
   
@@ -126,10 +135,20 @@ int main( )
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         dog.Draw(shader); //Dibuja el modelo
         
-        model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f)); 
         model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         dog.Draw(shader); //Dibuja el modelo
+
+        /*model = glm::translate(model, glm::vec3(-3.0f, -5.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        classroom.Draw(shader); //Dibuja el modelo */
+
+        model = glm::translate(model, glm::vec3(-3.0f, -5.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(20.0f, 20.0f, 20.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        brench.Draw(shader); //Dibuja el modelo
 
         // Swap the buffers
         glfwSwapBuffers( window );
@@ -190,7 +209,7 @@ void KeyCallback( GLFWwindow *window, int key, int scancode, int action, int mod
  
 
  
-}
+} 
 
 void MouseCallback( GLFWwindow *window, double xPos, double yPos )
 {
