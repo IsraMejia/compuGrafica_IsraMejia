@@ -105,10 +105,10 @@ int main()
 	{
 		// Positions            // Colors           // Texture Coords (u,v)
 		 
-		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.5f,0.0f,  
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.0f,  
 		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.0f,
-		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,2.0f, //2x text vert
-		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,2.0f,
+		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,1.0f, //2x text vert
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,1.0f,
 
 		
 	};
@@ -164,18 +164,18 @@ int main()
 	//image = stbi_load("images/checker_Tex.png", &textureWidth, &textureHeight, &nrChannels,0);
 	image = stbi_load("images/window.png", &textureWidth, &textureHeight, &nrChannels, 0);
 
-	glBindTexture(GL_TEXTURE_2D, texture1); //Se enlaza la textura 2D
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+	glBindTexture(GL_TEXTURE_2D, texture1); //Se enlaza la textura 2D 
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureWidth, textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D); //mipmap optimizar recursos acorde a la distancia
 	if (image)
 	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureWidth, textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 	else
 	{
 		std::cout << "Failed to load texture" << std::endl;
-	}
+	} 
 	stbi_image_free(image);
 
 	
