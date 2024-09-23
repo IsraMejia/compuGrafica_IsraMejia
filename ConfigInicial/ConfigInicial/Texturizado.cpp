@@ -101,6 +101,7 @@ int main()
 	Shader lampShader("Shader/lamp.vs", "Shader/lamp.frag");
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
+	/*
 	GLfloat vertices[] =
 	{
 		// Positions            // Colors           // Texture Coords (u,v)
@@ -119,6 +120,75 @@ int main()
 		1,2,3
 	
 	};
+	*/ 
+	GLfloat vertices[] = {
+		// Posicion del vertice    // Colores     // Textura (u, v)
+
+		// Cara frontal
+		-0.5f, -0.5f,  0.5f,  	1.0f, 0.0f, 0.0f,  	0.0f, 0.0f,  // Vértice 0
+		0.5f, -0.5f,  0.5f,  	0.0f, 1.0f, 0.0f,  	1.0f, 0.0f,  // Vértice 1
+		0.5f,  0.5f,  0.5f,  	0.0f, 0.0f, 1.0f,  	1.0f, 1.0f,  // Vértice 2
+		-0.5f,  0.5f,  0.5f,  	1.0f, 1.0f, 0.0f,  	0.0f, 1.0f,  // Vértice 3
+
+		// Cara trasera
+		-0.5f, -0.5f, -0.5f,  	1.0f, 0.0f, 1.0f,  	0.0f, 0.0f,  // Vértice 4
+		0.5f, -0.5f, -0.5f,  	0.0f, 1.0f, 1.0f,  	1.0f, 0.0f,  // Vértice 5
+		0.5f,  0.5f, -0.5f,  	1.0f, 1.0f, 1.0f,  	1.0f, 1.0f,  // Vértice 6
+		-0.5f,  0.5f, -0.5f,  	0.5f, 0.5f, 0.5f,  	0.0f, 1.0f,  // Vértice 7
+
+		// Cara izquierda
+		-0.5f, -0.5f, -0.5f,  	1.0f, 0.0f, 0.0f,  	0.0f, 0.0f,  // Vértice 8
+		-0.5f, -0.5f,  0.5f,  	0.0f, 1.0f, 0.0f,  	1.0f, 0.0f,  // Vértice 9
+		-0.5f,  0.5f,  0.5f,  	0.0f, 0.0f, 1.0f,  	1.0f, 1.0f,  // Vértice 10
+		-0.5f,  0.5f, -0.5f,  	1.0f, 1.0f, 0.0f,  	0.0f, 1.0f,  // Vértice 11
+
+		// Cara derecha
+		0.5f, -0.5f, -0.5f,  	1.0f, 0.0f, 1.0f,  	0.0f, 0.0f,  // Vértice 12
+		0.5f, -0.5f,  0.5f,  	0.0f, 1.0f, 1.0f,  	1.0f, 0.0f,  // Vértice 13
+		0.5f,  0.5f,  0.5f,  	1.0f, 1.0f, 1.0f,  	1.0f, 1.0f,  // Vértice 14
+		0.5f,  0.5f, -0.5f,  	0.5f, 0.5f, 0.5f,  	0.0f, 1.0f,  // Vértice 15
+
+		// Cara superior
+		-0.5f,  0.5f,  0.5f,  	1.0f, 0.0f, 0.0f,  	0.0f, 0.0f,  // Vértice 16
+		0.5f,  0.5f,  0.5f,  	0.0f, 1.0f, 0.0f,  	1.0f, 0.0f,  // Vértice 17
+		0.5f,  0.5f, -0.5f,  	0.0f, 0.0f, 1.0f,  	1.0f, 1.0f,  // Vértice 18
+		-0.5f,  0.5f, -0.5f,  	1.0f, 1.0f, 0.0f,  	0.0f, 1.0f,  // Vértice 19
+
+		// Cara inferior
+		-0.5f, -0.5f,  0.5f,  	1.0f, 0.0f, 1.0f,  	0.0f, 0.0f,  // Vértice 20
+		0.5f, -0.5f,  0.5f,  	0.0f, 1.0f, 1.0f,  	1.0f, 0.0f,  // Vértice 21
+		0.5f, -0.5f, -0.5f,  	1.0f, 1.0f, 1.0f,  	1.0f, 1.0f,  // Vértice 22
+		-0.5f, -0.5f, -0.5f,  	0.5f, 0.5f, 0.5f,  	0.0f, 1.0f   // Vértice 23
+	};
+
+
+	// Definimos los índices para formar los triángulos que componen cada cara del cubo
+	GLuint indices[] = {
+		// Cara frontal
+		0, 1, 2,
+		2, 3, 0,
+
+		// Cara trasera
+		4, 5, 6,
+		6, 7, 4,
+
+		// Cara izquierda
+		8, 9, 10,
+		10, 11, 8,
+
+		// Cara derecha
+		12, 13, 14,
+		14, 15, 12,
+
+		// Cara superior
+		16, 17, 18,
+		18, 19, 16,
+
+		// Cara inferior
+		20, 21, 22,
+		22, 23, 20
+	};
+
 
 	// First, set the container's VAO (and VBO)
 	GLuint VBO, VAO,EBO;
@@ -162,7 +232,10 @@ int main()
 	// Diffuse map
 		//Se carga la ruta de la textura 
 	//image = stbi_load("images/checker_Tex.png", &textureWidth, &textureHeight, &nrChannels,0);
-	image = stbi_load("images/window.png", &textureWidth, &textureHeight, &nrChannels, 0);
+	//image = stbi_load("images/window.png", &textureWidth, &textureHeight, &nrChannels, 0);
+	image = stbi_load("images/dado.png", &textureWidth, &textureHeight, &nrChannels, 0); 
+
+
 
 	glBindTexture(GL_TEXTURE_2D, texture1); //Se enlaza la textura 2D 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureWidth, textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
@@ -201,6 +274,8 @@ int main()
 		glm::mat4 view;
 		view = camera.GetViewMatrix();
 		glm::mat4 projection = glm::perspective(camera.GetZoom(), (GLfloat)SCREEN_WIDTH / (GLfloat)SCREEN_HEIGHT, 0.1f, 100.0f);
+		//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
+
 		glm::mat4 model(1);
 		// Get location objects for the matrices on the lamp shader (these could be different on a different shader)
 		// Get the uniform locations
